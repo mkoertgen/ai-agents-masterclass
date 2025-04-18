@@ -2,10 +2,10 @@
 
 **Self-hosted AI Starter Kit** is an open, docker compose template that
 quickly bootstraps a fully featured Local AI and Low Code development
-environment including Open WebUI for an interface to chat with your N8N agents. 
+environment including Open WebUI for an interface to chat with your N8N agents.
 
-This is Cole's version with a couple of improvements and the addition of Open WebUI and Flowise! 
-Also, the local RAG AI Agent workflow from the video will be automatically in your 
+This is Cole's version with a couple of improvements and the addition of Open WebUI and Flowise!
+Also, the local RAG AI Agent workflow from the video will be automatically in your
 n8n instance if you use this setup instead of the base one provided by n8n!
 
 [Original Local AI Starter Kit](https://github.com/n8n-io/self-hosted-ai-starter-kit)
@@ -35,7 +35,7 @@ builder that pairs very well with n8n
 ✅ [**Qdrant**](https://qdrant.tech/) - Open-source, high performance vector
 store with an comprehensive API
 
-✅ [**PostgreSQL**](https://www.postgresql.org/) -  Workhorse of the Data
+✅ [**PostgreSQL**](https://www.postgresql.org/) - Workhorse of the Data
 Engineering world, handles large amounts of data safely.
 
 ## Installation
@@ -90,13 +90,12 @@ pre-configured with network and disk so there isn’t much else you need to
 install. After completing the installation steps above, follow the steps below
 to get started.
 
-1. Open <http://localhost:5678/> in your browser to set up n8n. You’ll only
+1. Open [n8n](http://localhost:5678) in your browser to set up n8n. You’ll only
    have to do this once. You are NOT creating an account with n8n in the setup here,
    it is only a local account for your instance!
-2. Open the included workflow:
-   <http://localhost:5678/workflow/vTN9y2dLXqTiDfPT>
+2. Open the included workflow [Local RAG AI Agent](http://localhost:5678/workflow/vTN9y2dLXqTiDfPT)
 3. Create credentials for every service:
-   
+
    Ollama URL: http://ollama:11434
 
    Postgres: use DB, username, and password from .env. Host is postgres
@@ -106,25 +105,25 @@ to get started.
    Google Drive: Follow [this guide from n8n](https://docs.n8n.io/integrations/builtin/credentials/google/).
    Don't use localhost for the redirect URI, just use another domain you have, it will still work!
    Alternatively, you can set up [local file triggers](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.localfiletrigger/).
+
 4. Select **Test workflow** to start running the workflow.
 5. If this is the first time you’re running the workflow, you may need to wait
    until Ollama finishes downloading Llama3.1. You can inspect the docker
    console logs to check on the progress.
 6. Make sure to toggle the workflow as active and copy the "Production" webhook URL!
-7. Open <http://localhost:3000/> in your browser to set up Open WebUI.
-You’ll only have to do this once. You are NOT creating an account with Open WebUI in the 
-setup here, it is only a local account for your instance!
-8. Go to Workspace -> Functions -> Add Function -> Give name + description then paste in
-the code from `n8n_pipe.py`
+7. Open [OpenWeb UI](http://localhost:3000) in your browser to set up Open WebUI.
+8. In the Admin panel, Go to [Workspace -> Functions -> Add Function](http://localhost:3000/admin/functions/create) -> Give name + description then paste in
+   the code from `n8n_pipe.py`
 
    The function is also [published here on Open WebUI's site](https://openwebui.com/f/coleam/n8n_pipe/).
 
-9. Click on the gear icon and set the n8n_url to the production URL for the webhook
-you copied in a previous step.
-10. Toggle the function on and now it will be available in your model dropdown in the top left! 
+9. Click on the gear icon and set the `n8n_url` to the production URL for the [webhook](http://localhost:5678/webhook-test/invoke_n8n_agent)
+   you copied in a previous step.
+10. Toggle the function on and now it will be available in your model dropdown in the top left!
 
 To open n8n at any time, visit <http://localhost:5678/> in your browser.
 To open Open WebUI at any time, visit <http://localhost:3000/>.
+To open the qdrant UI at any time, visit <http://localhost:6333/dashboard>.
 
 With your n8n instance, you’ll have access to over 400 integrations and a
 suite of basic and advanced AI nodes such as

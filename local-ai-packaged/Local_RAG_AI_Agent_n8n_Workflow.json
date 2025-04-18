@@ -13,7 +13,7 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "iN7fO2CgatVwq73z",
+          "id": "M7rkzA1PlWasYuGa",
           "name": "Postgres account"
         }
       }
@@ -33,7 +33,7 @@
       ],
       "credentials": {
         "ollamaApi": {
-          "id": "eOwAotC7AUgJlvHM",
+          "id": "cfIofecgmIc6srbJ",
           "name": "Ollama account"
         }
       }
@@ -53,7 +53,7 @@
       ],
       "credentials": {
         "ollamaApi": {
-          "id": "eOwAotC7AUgJlvHM",
+          "id": "cfIofecgmIc6srbJ",
           "name": "Ollama account"
         }
       }
@@ -86,7 +86,7 @@
       ],
       "credentials": {
         "ollamaApi": {
-          "id": "eOwAotC7AUgJlvHM",
+          "id": "cfIofecgmIc6srbJ",
           "name": "Ollama account"
         }
       }
@@ -103,10 +103,10 @@
         "triggerOn": "specificFolder",
         "folderToWatch": {
           "__rl": true,
-          "value": "1914m3M7kRzkd5RJqAfzRY9EBcJrKemZC",
+          "value": "11pYwY429D1SJyPyFDGBCwRintf45FyAr",
           "mode": "list",
-          "cachedResultName": "Meeting Notes",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1914m3M7kRzkd5RJqAfzRY9EBcJrKemZC"
+          "cachedResultName": "n8n-test",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/11pYwY429D1SJyPyFDGBCwRintf45FyAr"
         },
         "event": "fileCreated",
         "options": {}
@@ -121,7 +121,7 @@
       ],
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "vzcL2pD7uQzqDpdK",
+          "id": "Jzk7bAaVmBHNBNRH",
           "name": "Google Drive account"
         }
       }
@@ -138,10 +138,10 @@
         "triggerOn": "specificFolder",
         "folderToWatch": {
           "__rl": true,
-          "value": "1914m3M7kRzkd5RJqAfzRY9EBcJrKemZC",
+          "value": "11pYwY429D1SJyPyFDGBCwRintf45FyAr",
           "mode": "list",
-          "cachedResultName": "Meeting Notes",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1914m3M7kRzkd5RJqAfzRY9EBcJrKemZC"
+          "cachedResultName": "n8n-test",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/11pYwY429D1SJyPyFDGBCwRintf45FyAr"
         },
         "event": "fileUpdated",
         "options": {}
@@ -156,7 +156,7 @@
       ],
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "vzcL2pD7uQzqDpdK",
+          "id": "Jzk7bAaVmBHNBNRH",
           "name": "Google Drive account"
         }
       }
@@ -217,7 +217,7 @@
       "executeOnce": true,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "vzcL2pD7uQzqDpdK",
+          "id": "Jzk7bAaVmBHNBNRH",
           "name": "Google Drive account"
         }
       }
@@ -291,7 +291,7 @@
       ],
       "credentials": {
         "ollamaApi": {
-          "id": "eOwAotC7AUgJlvHM",
+          "id": "cfIofecgmIc6srbJ",
           "name": "Ollama account"
         }
       }
@@ -377,7 +377,7 @@
       ],
       "credentials": {
         "qdrantApi": {
-          "id": "VOnegFP8eijBkbNO",
+          "id": "udzTA3aOgIJ7Sqpf",
           "name": "QdrantApi account"
         }
       }
@@ -436,7 +436,7 @@
       ],
       "credentials": {
         "qdrantApi": {
-          "id": "VOnegFP8eijBkbNO",
+          "id": "udzTA3aOgIJ7Sqpf",
           "name": "QdrantApi account"
         }
       }
@@ -730,10 +730,10 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "19f9691c-4682-4704-81f2-33fdec9d0be2",
+  "versionId": "3d703181-fcc7-4cff-a077-11cbdc6368d9",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "f722e3e1e81e942a38faa434ad0aee8699371bbff9f883b9d5c59a7c726605af"
+    "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
   "id": "vTN9y2dLXqTiDfPT",
   "tags": []
