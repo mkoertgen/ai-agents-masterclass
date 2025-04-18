@@ -103,6 +103,7 @@ to get started.
    Qdrant URL: http://qdrant:6333 (API key can be whatever since this is running locally)
 
    Google Drive: Follow [this guide from n8n](https://docs.n8n.io/integrations/builtin/credentials/google/).
+   Find your Google Cloud Clients at <https://console.cloud.google.com/auth/clients>
    Don't use localhost for the redirect URI, just use another domain you have, it will still work!
    Alternatively, you can set up [local file triggers](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.localfiletrigger/).
 
