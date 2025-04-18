@@ -24,26 +24,23 @@ x-n8n: &service-n8n
   links:
     - postgres
 
-# x-ollama: &service-ollama
-#   image: ollama/ollama:latest
-#   container_name: ollama
-#   networks: ['demo']
-#   restart: unless-stopped
-#   ports:
-#     - 11434:11434
-#   volumes:
-#     - ollama_storage:/root/.ollama
+x-ollama: &service-ollama
+  image: ollama/ollama:latest
+  container_name: ollama
+  networks: ["demo"]
+  restart: unless-stopped
+  ports: [11434:11434]
+  volumes: [ollama_storage:/root/.ollama]
 
-# x-init-ollama: &init-ollama
-#   image: ollama/ollama:latest
-#   networks: ['demo']
-#   container_name: ollama-pull-llama
-#   volumes:
-#     - ollama_storage:/root/.ollama
-#   entrypoint: /bin/sh
-#   command:
-#     - "-c"
-#     - "sleep 3; OLLAMA_HOST=ollama:11434 ollama pull llama3.1; OLLAMA_HOST=ollama:11434 ollama pull nomic-embed-text"
+x-init-ollama: &init-ollama
+  image: ollama/ollama:latest
+  networks: ["demo"]
+  container_name: ollama-pull-llama
+  volumes: [ollama_storage:/root/.ollama]
+  entrypoint: /bin/sh
+  command:
+    - "-c"
+    - "sleep 3; OLLAMA_HOST=ollama:11434 ollama pull llama3.1; OLLAMA_HOST=ollama:11434 ollama pull nomic-embed-text"
 
 services:
   flowise:
@@ -65,6 +62,7 @@ services:
     ports: [3000:8080]
     extra_hosts: [host.docker.internal:host-gateway]
     volumes: [open-webui:/app/backend/data]
+    environment: [OLLAMA_API_BASE_URL=http://host.docker.internal:11434/api]
 
   postgres:
     image: postgres:16-alpine
@@ -90,8 +88,7 @@ services:
     command:
       - "-c"
       - "n8n import:credentials --separate --input=/backup/credentials && n8n import:workflow --separate --input=/backup/workflows"
-    volumes:
-      - ./n8n/backup:/backup
+    volumes: [./n8n/backup:/backup]
     depends_on:
       postgres:
         condition: service_healthy
@@ -100,8 +97,7 @@ services:
     <<: *service-n8n
     container_name: n8n
     restart: unless-stopped
-    ports:
-      - 5678:5678
+    ports: [5678:5678]
     volumes:
       - n8n_storage:/home/node/.n8n
       - ./n8n/backup:/backup
@@ -117,34 +113,32 @@ services:
     container_name: qdrant
     networks: ["demo"]
     restart: unless-stopped
-    ports:
-      - 6333:6333
-    volumes:
-      - qdrant_storage:/qdrant/storage
+    ports: [6333:6333]
+    volumes: [qdrant_storage:/qdrant/storage]
 
-  # ollama-cpu:
-  #   profiles: ["cpu"]
-  #   <<: *service-ollama
+  ollama-cpu:
+    profiles: ["cpu"]
+    <<: *service-ollama
 
-  # ollama-gpu:
-  #   profiles: ["gpu-nvidia"]
-  #   <<: *service-ollama
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #           - driver: nvidia
-  #             count: 1
-  #             capabilities: [gpu]
+  ollama-gpu:
+    profiles: ["gpu-nvidia"]
+    <<: *service-ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 
-  # ollama-pull-llama-cpu:
-  #   profiles: ["cpu"]
-  #   <<: *init-ollama
-  #   depends_on:
-  #     - ollama-cpu
+  ollama-pull-llama-cpu:
+    profiles: ["cpu"]
+    <<: *init-ollama
+    depends_on:
+      - ollama-cpu
 
-  # ollama-pull-llama-gpu:
-  #   profiles: ["gpu-nvidia"]
-  #   <<: *init-ollama
-  #   depends_on:
-  #     - ollama-gpu
+  ollama-pull-llama-gpu:
+    profiles: ["gpu-nvidia"]
+    <<: *init-ollama
+    depends_on:
+      - ollama-gpu
